@@ -1,0 +1,134 @@
+/* Vega & Asociados — Estudio Jurídico — Estilos Complementarios */
+
+:root {
+  --color-navy: #0f172a;
+  --color-navy-soft: #1e293b;
+  --color-gold: #c5a059;
+  --color-bronze: #b45309;
+  --color-smoke: #f8fafc;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background-color: var(--color-smoke);
+  color: var(--color-navy);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle architectural grid texture for dark Legal-Tech surfaces */
+.bg-architectural {
+  background-color: #0f172a;
+  background-image:
+    radial-gradient(circle at 82% 18%, rgba(197, 160, 89, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 12% 85%, rgba(180, 83, 9, 0.1) 0%, transparent 42%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: auto, auto, 48px 48px, 48px 48px;
+}
+
+/* Degradado direccional sobre la fotografía inmersiva del Hero */
+.hero-scrim {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.25) 0%,
+    rgba(15, 23, 42, 0.85) 42%,
+    #0f172a 75%
+  );
+}
+
+@media (min-width: 1024px) {
+  .hero-scrim {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(15, 23, 42, 0.65) 0%,
+        rgba(15, 23, 42, 0) 20%,
+        rgba(15, 23, 42, 0) 76%,
+        rgba(15, 23, 42, 0.85) 100%
+      ),
+      linear-gradient(
+        90deg,
+        #0f172a 42%,
+        rgba(15, 23, 42, 0.55) 60%,
+        rgba(15, 23, 42, 0.15) 100%
+      );
+  }
+}
+
+/* Smooth CSS Grid Accordion */
+.accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.32s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+  opacity: 0;
+}
+
+.accordion-panel.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.accordion-panel-inner {
+  overflow: hidden;
+}
+
+/* Active practice card highlight */
+.practice-card {
+  transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+}
+
+.practice-card:hover {
+  transform: translateY(-3px);
+}
+
+.practice-card.is-selected {
+  border-color: #c5a059;
+  box-shadow: 0 18px 36px -14px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(197, 160, 89, 0.45);
+}
+
+/* Navbar scrolled state */
+.site-header.is-scrolled {
+  background-color: rgba(15, 23, 42, 0.96);
+  box-shadow: 0 10px 30px -10px rgba(2, 6, 23, 0.45);
+  border-bottom-color: rgba(197, 160, 89, 0.22);
+}
+
+/* Custom accessible focus ring */
+:focus-visible {
+  outline: 2px solid #c5a059;
+  outline-offset: 2px;
+}
+
+/* Carousel track transition */
+.reviews-track {
+  transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Subtle custom scrollbar for message preview */
+.preview-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.preview-scroll::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.25);
+}
+.preview-scroll::-webkit-scrollbar-thumb {
+  background: rgba(197, 160, 89, 0.45);
+  border-radius: 9999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .accordion-panel,
+  .practice-card,
+  .reviews-track {
+    transition: none;
+  }
+}
